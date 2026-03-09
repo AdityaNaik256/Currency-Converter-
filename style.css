@@ -1,0 +1,260 @@
+/* ── Reset & base ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: #e0e0e0;
+}
+
+/* ── Layout ───────────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: #8892b0;
+  margin-bottom: 1.8rem;
+}
+
+.subtitle a {
+  color: #64ffda;
+  text-decoration: none;
+}
+
+.subtitle a:hover {
+  text-decoration: underline;
+}
+
+/* ── Card ─────────────────────────────────────────────────────────── */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Input groups ─────────────────────────────────────────────────── */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+}
+
+.input-group label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #8892b0;
+  margin-bottom: 0.4rem;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #64ffda;
+  background: rgba(100, 255, 218, 0.06);
+}
+
+/* Remove default number arrows in webkit */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Style select dropdown arrow */
+.input-group {
+  position: relative;
+}
+
+.input-group select {
+  padding-right: 2.2rem;
+  cursor: pointer;
+}
+
+.input-group:has(select)::after {
+  content: '▾';
+  position: absolute;
+  right: 1rem;
+  bottom: 0.85rem;
+  pointer-events: none;
+  color: #8892b0;
+  font-size: 0.8rem;
+}
+
+/* ── Amount input takes its own row ───────────────────────────────── */
+.input-group:first-child {
+  margin-bottom: 1.2rem;
+}
+
+/* ── Currency row ─────────────────────────────────────────────────── */
+.currency-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Swap button ──────────────────────────────────────────────────── */
+#swap-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: #64ffda;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1px;
+}
+
+#swap-btn:hover {
+  background: rgba(100, 255, 218, 0.15);
+  transform: rotate(180deg);
+}
+
+/* ── Convert button ───────────────────────────────────────────────── */
+#convert-btn {
+  width: 100%;
+  padding: 0.85rem;
+  background: linear-gradient(135deg, #64ffda, #00b4d8);
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0a0a1a;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  letter-spacing: 0.5px;
+}
+
+#convert-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+#convert-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Result & info ────────────────────────────────────────────────── */
+.result {
+  margin-top: 1.4rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #64ffda;
+  letter-spacing: -0.3px;
+}
+
+.rate-info {
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: #8892b0;
+}
+
+/* ── Error ────────────────────────────────────────────────────────── */
+.error {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 77, 77, 0.15);
+  border: 1px solid rgba(255, 77, 77, 0.4);
+  border-radius: 8px;
+  color: #ff6b6b;
+  font-size: 0.9rem;
+}
+
+/* ── Loading ──────────────────────────────────────────────────────── */
+.loading {
+  margin-top: 1rem;
+  color: #8892b0;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(100, 255, 218, 0.3);
+  border-top-color: #64ffda;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Last updated note ────────────────────────────────────────────── */
+.updated-note {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: rgba(136, 146, 176, 0.6);
+}
+
+/* ── Utility ──────────────────────────────────────────────────────── */
+.hidden {
+  display: none !important;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────── */
+@media (max-width: 420px) {
+  .card {
+    padding: 1.4rem 1.2rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .result {
+    font-size: 1.4rem;
+  }
+}
